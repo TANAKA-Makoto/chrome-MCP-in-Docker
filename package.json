@@ -1,0 +1,18 @@
+{
+  "name": "chrome-mcp-docker",
+  "version": "1.0.0",
+  "description": "Docker container for MCP Chrome Bridge server",
+  "main": "index.js",
+  "scripts": {
+    "start": "mcp-chrome-bridge start --host 0.0.0.0 --port 12306"
+  },
+  "dependencies": {
+    "mcp-chrome-bridge": "^1.0.29"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["mcp", "chrome", "bridge", "docker"],
+  "author": "TANAKA-Makoto",
+  "license": "MIT"
+}

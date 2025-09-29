@@ -1,0 +1,27 @@
+services:
+  mcp-chrome-bridge:
+    build: .
+    ports:
+      - "12306:12306"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - mcp-network
+    restart: unless-stopped
+    volumes:
+      # Mount a volume for persistent data if needed
+      - mcp-data:/app/data
+    healthcheck:
+      test: ["CMD", "sh", "-c", "wget --no-verbose --tries=1 --spider http://localhost:12306/mcp || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  mcp-network:
+    driver: bridge
+
+volumes:
+  mcp-data:
+    driver: local
