@@ -21,8 +21,8 @@ if docker build --network=host -t mcp-chrome-bridge .; then
     echo "You can now run the container with:"
     echo "  docker run -d -p 12306:12306 --name mcp-chrome-bridge mcp-chrome-bridge"
     echo ""
-    echo "Or use docker-compose:"
-    echo "  docker-compose up -d"
+    echo "Or use docker compose:"
+    echo "  docker compose up -d"
     echo ""
     echo "The MCP server will be available at http://localhost:12306/mcp"
 else

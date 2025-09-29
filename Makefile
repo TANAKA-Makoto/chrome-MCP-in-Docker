@@ -27,25 +27,25 @@ stop: ## Stop the container
 	docker stop $(CONTAINER_NAME) || true
 	docker rm $(CONTAINER_NAME) || true
 
-# Start with docker-compose
+# Start with docker compose
 .PHONY: up
-up: ## Start with docker-compose
-	docker-compose up -d
+up: ## Start with docker compose
+	docker compose up -d
 
-# Stop with docker-compose
+# Stop with docker compose
 .PHONY: down
-down: ## Stop with docker-compose
-	docker-compose down
+down: ## Stop with docker compose
+	docker compose down
 
 # Show container logs
 .PHONY: logs
 logs: ## Show container logs
 	docker logs -f $(CONTAINER_NAME)
 
-# Show docker-compose logs
+# Show docker compose logs
 .PHONY: logs-compose
-logs-compose: ## Show docker-compose logs
-	docker-compose logs -f
+logs-compose: ## Show docker compose logs
+	docker compose logs -f
 
 # Clean up images and containers
 .PHONY: clean

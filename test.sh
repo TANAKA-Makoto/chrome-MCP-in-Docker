@@ -12,9 +12,9 @@ if ! command -v docker &> /dev/null; then
     exit 1
 fi
 
-# Check if docker-compose is available
-if ! command -v docker-compose &> /dev/null; then
-    echo "⚠️  Warning: docker-compose not found, will use docker directly"
+# Check if docker compose is available
+if ! docker compose version &> /dev/null; then
+    echo "⚠️  Warning: docker compose not found, will use docker directly"
     USE_COMPOSE=false
 else
     USE_COMPOSE=true
@@ -66,7 +66,7 @@ if [ "$TEST_PASSED" = true ]; then
     echo "✅ All tests passed! The container is ready to use."
     echo ""
     echo "To start using the MCP Chrome Bridge:"
-    echo "1. Run: docker-compose up -d"
+    echo "1. Run: docker compose up -d"
     echo "2. Install the Chrome extension from: https://github.com/hangwin/mcp-chrome/releases"
     echo "3. Configure your MCP client to connect to: http://localhost:12306/mcp"
 else

@@ -37,7 +37,7 @@ cd chrome-MCP-in-Docker
 
 3. Start the container:
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 4. The MCP server will be available at `http://localhost:12306/mcp`
@@ -46,10 +46,10 @@ docker-compose up -d
 
 ```bash
 # Build and start
-docker-compose up -d --build
+docker compose up -d --build
 
 # Check logs
-docker-compose logs -f
+docker compose logs -f
 ```
 
 ### Method 3: Using Docker directly
@@ -155,16 +155,16 @@ If you encounter SSL certificate or network errors during build:
    ```
 
 ### Connection Issues
-- Ensure the container is running: `docker-compose ps`
+- Ensure the container is running: `docker compose ps`
 - Check if port 12306 is accessible: `curl http://localhost:12306/mcp`
 - Verify Chrome extension is installed and configured correctly
-- Check container logs: `docker-compose logs -f mcp-chrome-bridge`
+- Check container logs: `docker compose logs -f mcp-chrome-bridge`
 
 ### Container Logs
 View container logs for debugging:
 ```bash
-# Using docker-compose
-docker-compose logs -f mcp-chrome-bridge
+# Using docker compose
+docker compose logs -f mcp-chrome-bridge
 
 # Using docker directly
 docker logs -f mcp-chrome-bridge
@@ -189,10 +189,10 @@ make test
 ### Rebuilding
 If you need to rebuild the container:
 ```bash
-# Using docker-compose
-docker-compose down
-docker-compose build --no-cache
-docker-compose up -d
+# Using docker compose
+docker compose down
+docker compose build --no-cache
+docker compose up -d
 
 # Using Makefile
 make clean
@@ -208,10 +208,10 @@ make help           # Show available commands
 make build          # Build the Docker image
 make run            # Run the container
 make stop           # Stop the container
-make up             # Start with docker-compose
-make down           # Stop with docker-compose
+make up             # Start with docker compose
+make down           # Stop with docker compose
 make logs           # Show container logs
-make logs-compose   # Show docker-compose logs
+make logs-compose   # Show docker compose logs
 make clean          # Clean up containers and images
 make restart        # Restart the container
 make status         # Check container status
@@ -220,12 +220,12 @@ make test           # Test the MCP server endpoint
 
 ### Docker Compose Commands
 ```bash
-docker-compose up -d              # Start in background
-docker-compose up --build         # Build and start
-docker-compose down               # Stop and remove containers
-docker-compose logs -f            # Follow logs
-docker-compose ps                 # Show running containers
-docker-compose restart            # Restart services
+docker compose up -d              # Start in background
+docker compose up --build         # Build and start
+docker compose down               # Stop and remove containers
+docker compose logs -f            # Follow logs
+docker compose ps                 # Show running containers
+docker compose restart            # Restart services
 ```
 
 ### Direct Docker Commands

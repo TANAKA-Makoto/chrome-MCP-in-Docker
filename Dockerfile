@@ -6,9 +6,9 @@ WORKDIR /app
 # Copy package files
 COPY package.json ./
 
-# Install the package
-# Note: In restricted environments, you may need to configure npm registry access
-RUN npm install
+# Install wget for health checks and install npm packages
+RUN apk add --no-cache wget && \
+    npm install
 
 # Expose the HTTP port for MCP server
 EXPOSE 12306
